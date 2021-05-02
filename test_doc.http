@@ -1,0 +1,35 @@
+# REST Client tests on https://github.com/tronalddump-io/tronald-app
+@httpBaseUrl = http://localhost:8080
+
+### Test GET Request Handlers
+GET {{httpBaseUrl}}/hello-world
+
+### Test GET Request Handlers with query param and delay
+GET {{httpBaseUrl}}/hello-world?name=Shubhendu
+
+### Test POST Request Handlers
+POST {{httpBaseUrl}}/hello-world
+
+{
+    "nicknames": [
+        {"nickname":"bob"},
+        {"nickname":"don"}
+    ]
+}
+
+### Test GET Request Handlers with XML Response
+GET {{httpBaseUrl}}/note
+
+### Test GET Request Handlers to different url
+GET {{httpBaseUrl}}/users
+
+### Test GET Request Handlers with path as resources and subresources with wildcards and query param
+GET {{httpBaseUrl}}/users/get/11212?name=Shubhendu
+
+### Test POST Request Handlers capturing data from request body and with path as resource and subresources with wildcard
+POST {{httpBaseUrl}}/users/get/11212?name=Shubhendu
+
+{
+    "firstName": "Shubhendu",
+    "lastName": "Madhukar"
+}

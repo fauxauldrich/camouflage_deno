@@ -1,0 +1,11 @@
+loglevel: INFO
+protocols:
+  http:
+    enable: true
+    port: 8080
+    mocks: "./mocks"
+  https:
+    enable: true
+    port: 8443
+    cert: "./certs/server.crt"
+    key: "./certs/server.key"
