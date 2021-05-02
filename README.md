@@ -2,13 +2,15 @@
 
 <img src="docs/camouflage.png" alt="camouflage.png" width="300"/>
 
+[Full Documentation](https://fauxauldrich.github.io/camouflage/)
+
 Camouflage is a service virtualization tool inspired by [namshi/mockserver](https://github.com/namshi/mockserver). As the original description says, the mocking/service virtualization works on a file based structure where _you simply organize your mocked HTTP responses in a bunch of mock files and it will serve them like they were coming from a real API; in this way you can write your frontends without caring too much whether your backend is really ready or not._
 
 - Camouflage is a deno module, therefore to install Camouflage, you'd need to [install Deno](https://deno.land/#installation) first, if you haven't already done so.
 - You can then import Camouflage into your project:
 
 ```javascript
-import { CamouflageConfig, CamouflageServer } from "./mod.ts";
+import { CamouflageConfig, CamouflageServer } from "https://deno.land/x/camouflage@0.0.1/mod.ts";
 ```
 
 - Note that you'd also need to provide a config file to initialize Camouflage.
@@ -83,4 +85,3 @@ Content-Type: application/json
 ```
 
 Navigate to [http://localhost:8080/hello-world](http://localhost:8080/hello-world)
-

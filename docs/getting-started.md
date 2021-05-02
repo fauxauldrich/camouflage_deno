@@ -4,7 +4,7 @@
 - You can then import Camouflage into your project:
 
 ```javascript
-import { CamouflageConfig, CamouflageServer } from "./mod.ts";
+import { CamouflageConfig, CamouflageServer } from "https://deno.land/x/camouflage@0.0.1/mod.ts";
 ```
 
 - Note that you'd also need to provide a config file to initialize Camouflage.
