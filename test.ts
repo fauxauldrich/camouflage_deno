@@ -1,4 +1,4 @@
-import { CamouflageConfig, CamouflageServer } from "./mod.ts";
+import { CamouflageConfig, CamouflageServer } from "https://deno.land/x/camouflage@0.0.1/mod.ts";
 import { YamlLoader } from "https://deno.land/x/yaml_loader/mod.ts";
 
 const configLoader = new YamlLoader();
