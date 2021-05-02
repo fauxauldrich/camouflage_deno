@@ -1,4 +1,4 @@
-# REST Client tests on https://github.com/tronalddump-io/tronald-app
+# REST Client tests on Camouflage
 @httpBaseUrl = http://localhost:8080
 
 ### Test GET Request Handlers
