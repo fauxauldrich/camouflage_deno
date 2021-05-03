@@ -4,7 +4,7 @@
 - You can then import Camouflage into your project:
 
 ```javascript
-import { CamouflageConfig, CamouflageServer } from "https://deno.land/x/camouflage@0.0.1/mod.ts";
+import { CamouflageConfig, CamouflageServer } from "https://deno.land/x/camouflage@0.0.2/mod.ts";
 ```
 
 - Note that you'd also need to provide a config file to initialize Camouflage.
@@ -16,8 +16,6 @@ const config: CamouflageConfig = <CamouflageConfig>await configLoader.parseFile(
 ```
 
 - Create a `config.yaml` file at the root of your project. And paste the following content (update if required).
-
-## Configuration Options / Sample Config yml File
 
 ```yaml
 loglevel: INFO
@@ -31,6 +29,12 @@ protocols:
     port: 8443
     cert: "./certs/server.crt"
     key: "./certs/server.key"
+```
+
+- In case you need HTTPs endpoints, create .crt and .key files before starting the server. For testing purposes you can generate a self-signed certificate. If HTTPs endpoints are not required, update above config.yaml to disable https protocol
+
+```shell
+openssl req -x509 -sha256 -nodes -newkey rsa:2048 -days 365 -keyout server.key -out server.crt
 ```
 
 - For simplicity, create an `inputs` array to store the configs in following order.
@@ -54,6 +58,12 @@ const inputs = [
 const camouflageServer: CamouflageServer = new CamouflageServer();
 // @ts-ignore ignore
 camouflageServer.start(...inputs);
+```
+
+- Run using the command
+
+```shell
+deno run --allow-net --allow-read --allow-write --unstable test.ts
 ```
 
 ## Create your first mock
