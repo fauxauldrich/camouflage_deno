@@ -1,5 +1,6 @@
 import * as log from "https://deno.land/std@0.95.0/log/mod.ts";
 import { CodeHelper } from "./CodeHelper.ts";
+import { CsvHelper } from "./CsvHelper.ts";
 import InjectHelper from "./InjectHelper.ts";
 import NowHelper from "./NowHelper.ts";
 import NumBetweenHelper from "./NumBetweenHelper.ts";
@@ -16,6 +17,7 @@ const registerHandlebars = (logger: log.Logger) => {
   new RequestHelper(logger).register();
   new InjectHelper(logger).register();
   new CodeHelper(logger).register();
+  new CsvHelper(logger).register();
   logger.info("Handlebar helpers registration completed");
 };
 export default registerHandlebars;
