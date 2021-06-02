@@ -263,13 +263,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#configuration-options-sample-config-yml-file" class="md-nav__link">
-    Configuration Options / Sample Config yml File
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#create-your-first-mock" class="md-nav__link">
     Create your first mock
   </a>
@@ -384,13 +377,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#configuration-options-sample-config-yml-file" class="md-nav__link">
-    Configuration Options / Sample Config yml File
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#create-your-first-mock" class="md-nav__link">
     Create your first mock
   </a>
@@ -419,7 +405,7 @@
 <li>Camouflage is a deno module, therefore to install Camouflage, you'd need to <a href="https://deno.land/#installation" target="_blank">install Deno</a> first, if you haven't already done so.</li>
 <li>You can then import Camouflage into your project:</li>
 </ul>
-<pre><code class="language-javascript">import { CamouflageConfig, CamouflageServer } from &quot;https://deno.land/x/camouflage@0.0.1/mod.ts&quot;;
+<pre><code class="language-javascript">import { CamouflageConfig, CamouflageServer } from &quot;https://deno.land/x/camouflage@0.0.2/mod.ts&quot;;
 </code></pre>
 <ul>
 <li>Note that you'd also need to provide a config file to initialize Camouflage.</li>
@@ -431,7 +417,6 @@ const config: CamouflageConfig = &lt;CamouflageConfig&gt;await configLoader.pars
 <ul>
 <li>Create a <code>config.yaml</code> file at the root of your project. And paste the following content (update if required).</li>
 </ul>
-<h2 id="configuration-options-sample-config-yml-file">Configuration Options / Sample Config yml File</h2>
 <pre><code class="language-yaml">loglevel: INFO
 protocols:
   http:
@@ -443,6 +428,11 @@ protocols:
     port: 8443
     cert: &quot;./certs/server.crt&quot;
     key: &quot;./certs/server.key&quot;
+</code></pre>
+<ul>
+<li>In case you need HTTPs endpoints, create .crt and .key files before starting the server. For testing purposes you can generate a self-signed certificate. If HTTPs endpoints are not required, update above config.yaml to disable https protocol</li>
+</ul>
+<pre><code class="language-shell">openssl req -x509 -sha256 -nodes -newkey rsa:2048 -days 365 -keyout server.key -out server.crt
 </code></pre>
 <ul>
 <li>For simplicity, create an <code>inputs</code> array to store the configs in following order.</li>
@@ -464,6 +454,11 @@ protocols:
 <pre><code class="language-javascript">const camouflageServer: CamouflageServer = new CamouflageServer();
 // @ts-ignore ignore
 camouflageServer.start(...inputs);
+</code></pre>
+<ul>
+<li>Run using the command</li>
+</ul>
+<pre><code class="language-shell">deno run --allow-net --allow-read --allow-write --unstable test.ts
 </code></pre>
 <h2 id="create-your-first-mock">Create your first mock</h2>
 <p>Camouflage follows the same convention as mockserver to create mocks. For example,</p>

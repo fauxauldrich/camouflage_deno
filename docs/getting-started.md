@@ -25,7 +25,7 @@ protocols:
     port: 8080
     mocks: "./mocks"
   https:
-    enable: true
+    enable: false
     port: 8443
     cert: "./certs/server.crt"
     key: "./certs/server.key"

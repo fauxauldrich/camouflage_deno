@@ -12,7 +12,7 @@ Camouflage is a service virtualization tool inspired by [namshi/mockserver](http
 
 Well, the original tool has not been maintained for some time now. But more importantly, Camouflage simply borrows the idea from the original and though it does use some of the same logic and functions, majority of the code has been written from scratch.
 
-1. The underlying codebase has been re-written in Deno.
+1. The underlying codebase has been re-written to run on Deno.
 2. Some features from the original tool might be missing, or have been implemented differently. (import and eval have not been ported to Camouflage)
 3. Camouflage introduces handlebars, which allows you to generate dynamic (more real) responses.
 4. Using handlebars, you can generate random numbers, string, alphanumeric string, UUIDs and random dates.
