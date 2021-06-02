@@ -134,6 +134,16 @@ Content-Type: application/json
 }
 ```
 
+## csv
+
+Type: Custom Helper
+
+Usage: CSV Helper allows you to provide a data source as an input along with two combinations of policies
+- With a key and value: In this case the helper will return a response specific to a given key and value
+- Random: In this case, helper will pick one row from the provided csv and formulate the response for the provided row
+
+For more details on how to use csv helper, refer to CSV Data Source page.
+
 ## Inbuilt Helpers
 
 !!! note
