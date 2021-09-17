@@ -1,9 +1,9 @@
 loglevel: INFO
+mocks: "./mocks"
 protocols:
   http:
     enable: true
     port: 8080
-    mocks: "./mocks"
   https:
     enable: false
     port: 8443

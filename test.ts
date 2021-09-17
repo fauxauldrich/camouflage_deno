@@ -1,19 +1,17 @@
-import { CamouflageConfig, CamouflageServer } from "https://deno.land/x/camouflage@0.0.1/mod.ts";
+import { CamouflageConfig, CamouflageOptions, CamouflageServer } from "./mod.ts";
 import { YamlLoader } from "https://deno.land/x/yaml_loader/mod.ts";
 
 const configLoader = new YamlLoader();
 const config: CamouflageConfig = <CamouflageConfig>await configLoader.parseFile("./config.yaml");
-const inputs = [
-  config.loglevel,
-  config.protocols.http.enable,
-  config.protocols.http.port,
-  config.protocols.http.mocks,
-  config.protocols.https.enable,
-  config.protocols.https.port,
-  config.protocols.https.cert,
-  config.protocols.https.key,
-];
-
+const camouflageOptions: CamouflageOptions = {
+  loglevel: config.loglevel,
+  mocksDir: config.mocks,
+  httpEnable: config.protocols.http.enable,
+  httpPort: config.protocols.http.port,
+  httpsEnable: config.protocols.https.enable,
+  httpsPort: config.protocols.https.port,
+  cert: config.protocols.https.cert,
+  key: config.protocols.https.key,
+}
 const camouflageServer: CamouflageServer = new CamouflageServer();
-// @ts-ignore ignore
-camouflageServer.start(...inputs);
+camouflageServer.start(camouflageOptions);

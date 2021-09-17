@@ -10,26 +10,10 @@ export default class GlobalRoutes {
   constructor(app: Opine, mocksDir: string, logger: log.Logger) {
     this.app = app;
     this.mocksDir = mocksDir;
-    this.logger = logger;
+    this.logger = logger
   }
   defineGlobalRoutes = () => {
-    this.app.get("*", this.handler);
-
-    this.app.post("*", this.handler);
-
-    this.app.put("*", this.handler);
-
-    this.app.delete("*", this.handler);
-
-    this.app.head("*", this.handler);
-
-    this.app.options("*", this.handler);
-
-    this.app.connect("*", this.handler);
-
-    this.app.patch("*", this.handler);
-
-    this.app.trace("*", this.handler);
+    this.app.all("*", this.handler);
   };
   private handler = async (req: Request, res: Response) => {
     const data = new Uint8Array(<number>req.contentLength);
@@ -44,6 +28,7 @@ export default class GlobalRoutes {
       res.append(headerKey, headers[headerKey]);
     });
     res.setStatus(parseInt(response.status));
+    this.logger.debug(`Generated Response: ${res.body}`)
     res.send(response.body);
   };
 }
